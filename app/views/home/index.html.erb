@@ -23,5 +23,14 @@
 <body>
   <h1>ようこそ！</h1>
   <p>これは青色のホームページです。</p>
+  <% if user_signed_in? %>
+     <%= form_tag(destroy_user_session_path, method: :delete) do %>
+    <%= submit_tag 'Logout', class: "logout-link" %>
+  <% end %>
+<% else %>
+  <%= link_to 'Login', new_user_session_path, class: "logout-link" %>
+  <%= link_to 'Sign up', new_user_registration_path, class: "logout-link" %>
+  <% end %>
+
 </body>
 </html>
