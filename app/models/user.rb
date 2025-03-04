@@ -5,4 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          enum role: { student: 0, teacher: 1 }
-end
+
+
+         after_initialize :set_default_role, if: :new_record?
+
+         private
+       
+         def set_default_role
+           self.role ||= :student 
+         end
+        end       
