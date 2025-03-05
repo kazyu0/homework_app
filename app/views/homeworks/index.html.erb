@@ -1,0 +1,14 @@
+<h2>宿題一覧</h2>
+
+<% @homeworks.each do |homework| %>
+  <div>
+    <h3><%= homework.title %></h3>
+    <p><%= homework.description %></p>
+    <p>締切日: <%= homework.deadline.strftime("%Y-%m-%d") %></p>
+    <p>登録者: <%= homework.teacher.email %></p>
+  </div>
+<% end %>
+
+<% if current_user.teacher? %>
+  <%= link_to "新しい宿題を登録", new_homework_path %>
+<% end %>

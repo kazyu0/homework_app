@@ -1,0 +1,22 @@
+<h2>宿題を登録</h2>
+
+<%= form_with(model: homework, local: false, id: "homework_form") do |f| %>
+  <div>
+    <%= f.label :title, "タイトル" %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :description, "詳細" %><br>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.label :deadline, "締切日" %><br>
+    <%= f.date_field :deadline %>
+  </div>
+
+  <div>
+    <%= f.submit "登録" %>
+  </div>
+<% end %>
